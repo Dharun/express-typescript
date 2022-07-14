@@ -1,0 +1,10 @@
+{
+  "name": "express-typescript",
+  "version": "1.0.0",
+  "description": "Boilerplate for Express (NodeJS), Typescript and Sequelize",
+  "main": "index.js",
+  "repository": "https://github.com/Dharun/express-typescript.git",
+  "author": "Dharun Ramakrishnan",
+  "license": "MIT",
+  "private": false
+}
