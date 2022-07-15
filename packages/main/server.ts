@@ -1,6 +1,8 @@
 import { Server, createServer } from 'http';
 import express, { Application } from 'express';
 import Lumper from './lumpers/index';
+import NotFoundError from '@universe/fallacy/notFound';
+import ErrorHandler from '@universe/middlewares/errorHandler';
 
 const ExpressServer = async (): Promise<{
   server: Server;
@@ -8,7 +10,11 @@ const ExpressServer = async (): Promise<{
 }> => {
   const app: Application = express();
   const server = createServer(app);
-  Lumper({ app, server });
+  Lumper({ app });
+  app.all('*', async () => {
+    throw new NotFoundError();
+  });
+  app.use(ErrorHandler);
   return { app, server };
 };
 
