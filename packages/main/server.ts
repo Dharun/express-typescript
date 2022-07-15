@@ -1,12 +1,12 @@
 import { Server, createServer } from 'http';
-import express from 'express';
-import Lumper from './lumpers/index'
+import express, { Application } from 'express';
+import Lumper from './lumpers/index';
 
 const ExpressServer = async (): Promise<{
   server: Server;
-  app: express.Application;
+  app: Application;
 }> => {
-  const app: express.Application = express();
+  const app: Application = express();
   const server = createServer(app);
   Lumper({ app, server });
   return { app, server };

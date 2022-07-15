@@ -7,7 +7,10 @@ class Logger {
     const transports: winston.transport[] = [
       new winston.transports.Console({
         format: winston.format.combine(
-          winston.format.colorize({ all: true }),
+          winston.format.colorize({
+            all: true,
+            colors: { info: 'blue', error: 'red', silly: 'yellow' }
+          }),
           winston.format.simple()
         )
       })
